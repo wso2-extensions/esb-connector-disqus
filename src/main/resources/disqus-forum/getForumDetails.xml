@@ -23,7 +23,6 @@
     <sequence>
         <property name="uri.var.forumId" expression="$func:forumId"/>
         <property name="uri.var.related" expression="$func:related"/>
-
         <script language="js">
             <![CDATA[
                 var related = mc.getProperty('uri.var.related');
@@ -32,25 +31,18 @@
                 var accessToken = mc.getProperty('uri.var.accessToken');
 				var forumId = mc.getProperty('uri.var.forumId');
                 var urlQuery = '';
-                
 				// Mandatory Query Parameters
-				
-				urlQuery += 'forum=' + forumId + '&';		
-                
+				urlQuery += 'forum=' + forumId + '&';
 				// Optional Query Parameters
-				
 				if (apiKey != null && apiKey != ""){
                     urlQuery += 'api_key=' + apiKey + '&';
                 }
-				
 				if (apiSecret != null && apiSecret != ""){
                     urlQuery += 'api_secret=' + apiSecret + '&';
                 }
-				
 				if (accessToken != null && accessToken != ""){
                     urlQuery += 'access_token=' + accessToken + '&';
                 }
-                
                 if (related != null && related != ""){
 					// If mulitple items are sent.
 					if(related.indexOf(',') != -1){
@@ -63,24 +55,20 @@
 					} else {
 						urlQuery += 'related=' + related + '&';
 					}
-                }                
-                
+                }
                 if(urlQuery != ""){
                 	// Prefix the urlQuery with '?' and remove the trailing '&'
                 	urlQuery = '?' + urlQuery.substring(0, urlQuery.length-1);
                 }                
 				mc.setProperty('uri.var.urlQuery', urlQuery);
-				
             ]]>
         </script>
-
         <call>
             <endpoint>
                 <http method="get"
                       uri-template="{+uri.var.apiUrl}/forums/details.json{+uri.var.urlQuery}"/>
             </endpoint>
         </call>
-
         <!-- Remove custom Headers from the API Response -->
         <header name="X-Ratelimit-Remaining" action="remove" scope="transport"/>
         <header name="X-User" action="remove" scope="transport"/>
@@ -95,6 +83,5 @@
         <header name="X-XSS-Protection" action="remove" scope="transport"/>
         <header name="Via" action="remove" scope="transport"/>
         <header name="X-Varnish" action="remove" scope="transport"/>
-
     </sequence>
 </template>

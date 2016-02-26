@@ -227,7 +227,6 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
 
         JSONArray esbResponseArray = esbRestResponse.getBody().getJSONArray("response");
-
         JSONArray apiResponseArray = apiRestResponse.getBody().getJSONArray("response");
 
         Assert.assertEquals(apiResponseArray.length(), esbResponseArray.length());

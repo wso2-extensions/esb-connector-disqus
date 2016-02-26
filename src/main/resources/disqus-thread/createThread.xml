@@ -34,7 +34,6 @@
         <property name="uri.var.message" expression="$func:message"/>
         <property name="uri.var.identifier" expression="$func:identifier"/>
         <property name="uri.var.slug" expression="$func:slug"/>
-
         <script language="js">
             <![CDATA[                
                 var categoryId = mc.getProperty('uri.var.categoryId');
@@ -49,70 +48,53 @@
                 var forumId = mc.getProperty('uri.var.forumId');
                 var title = mc.getProperty('uri.var.title');                
                 var urlQuery = '';
-                
 				// Mandatory Query Parameters
-				
                 urlQuery += 'forum=' + forumId + '&';                
                 urlQuery += 'title=' + title + '&';
-
-				// Optional Query Parameters	
-				
+				// Optional Query Parameters
 				if (apiKey != null && apiKey != ""){
                     urlQuery += 'api_key=' + apiKey + '&';
                 }
-				
 				if (apiSecret != null && apiSecret != ""){
                     urlQuery += 'api_secret=' + apiSecret + '&';
-                }	
-				
+                }
 				if (accessToken != null && accessToken != ""){
                     urlQuery += 'access_token=' + accessToken + '&';
-                }		
-                
+                }
                 if (categoryId != null && categoryId != ""){
 					urlQuery += 'category=' + categoryId + '&';
                 }
-                
                 if (date != null && date != ""){
 					urlQuery += 'date=' + date + '&';
                 }
-                
                 if (identifier != null && identifier != ""){
 					urlQuery += 'identifier=' + identifier + '&';
                 }
-                
                 if (message != null && message != ""){
 					urlQuery += 'message=' + message + '&';
                 }
-                
                 if (slug != null && slug != ""){
 					urlQuery += 'slug=' + slug + '&';
                 }
-                
                 if (url != null && url != ""){
 					urlQuery += 'url=' + url + '&';
                 }
-                
                 // Prefix the urlQuery with '?' and remove the trailing '&'
                 urlQuery = '?' + urlQuery.substring(0, urlQuery.length-1);
-				mc.setProperty('uri.var.urlQuery', urlQuery);                                              
-                
+				mc.setProperty('uri.var.urlQuery', urlQuery);
 				// This is done so as to send an EMPTY payload on the POST body.
                 mc.setPayloadJSON(new Object());
             ]]>
         </script>
-
         <!--This is done to make sure that the POST body is sent entirely Empty (Not even {})-->
         <property name="FORCE_POST_PUT_NOBODY" value="true" scope="axis2" type="BOOLEAN"/>
         <property name="messageType" value="application/x-www-form-urlencoded" scope="axis2"/>
-
         <call>
             <endpoint>
                 <http method="post"
                       uri-template="{+uri.var.apiUrl}/threads/create.json{+uri.var.urlQuery}"/>
             </endpoint>
         </call>
-
         <!-- Remove custom Headers from the API Response -->
         <header name="X-Ratelimit-Remaining" action="remove" scope="transport"/>
         <header name="X-User" action="remove" scope="transport"/>
@@ -127,6 +109,5 @@
         <header name="X-XSS-Protection" action="remove" scope="transport"/>
         <header name="Via" action="remove" scope="transport"/>
         <header name="X-Varnish" action="remove" scope="transport"/>
-
     </sequence>
 </template>
