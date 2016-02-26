@@ -21,35 +21,30 @@
     <sequence>
         <property name="uri.var.categoryId" expression="$func:categoryId"/>
         <property name="uri.var.urlQuery" value=""/>
-
         <filter source="boolean(get-property('uri.var.apiKey'))" regex="true">
             <then>
                 <property name="uri.var.urlQuery"
                           expression="fn:concat(get-property('uri.var.urlQuery'), '&amp;api_key=', get-property('uri.var.apiKey'))"/>
             </then>
         </filter>
-
         <filter source="boolean(get-property('uri.var.apiSecret'))" regex="true">
             <then>
                 <property name="uri.var.urlQuery"
                           expression="fn:concat(get-property('uri.var.urlQuery'), '&amp;api_secret=', get-property('uri.var.apiSecret'))"/>
             </then>
         </filter>
-
         <filter source="boolean(get-property('uri.var.accessToken'))" regex="true">
             <then>
                 <property name="uri.var.urlQuery"
                           expression="fn:concat(get-property('uri.var.urlQuery'), '&amp;access_token=', get-property('uri.var.accessToken'))"/>
             </then>
         </filter>
-
         <call>
             <endpoint>
                 <http method="get"
                       uri-template="{+uri.var.apiUrl}/categories/details.json?category={+uri.var.categoryId}{+uri.var.urlQuery}"/>
             </endpoint>
         </call>
-
         <!-- Remove custom Headers from the API Response -->
         <header name="X-Ratelimit-Remaining" action="remove" scope="transport"/>
         <header name="X-User" action="remove" scope="transport"/>
@@ -64,6 +59,5 @@
         <header name="X-XSS-Protection" action="remove" scope="transport"/>
         <header name="Via" action="remove" scope="transport"/>
         <header name="X-Varnish" action="remove" scope="transport"/>
-
     </sequence>
 </template>
