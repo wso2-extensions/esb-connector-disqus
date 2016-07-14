@@ -131,7 +131,8 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
     /**
      * Test getThreadDetails method with Mandatory Parameters.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"}, description = "disqus {getThreadDetails} integration test with mandatory parameters")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"},
+            description = "disqus {getThreadDetails} integration test with mandatory parameters")
     public void testGetThreadDetailsWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getThreadDetails");
@@ -159,7 +160,8 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
     /**
      * Test getThreadDetails method with Optional Parameters.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"}, description = "disqus {getThreadDetails} integration test with optional parameters")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"},
+            description = "disqus {getThreadDetails} integration test with optional parameters")
     public void testGetThreadDetailsWithOptionalParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getThreadDetails");
@@ -192,7 +194,8 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
     /**
      * Test getThreadDetails method with Negative Case.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"}, description = "disqus {getThreadDetails} integration test with negative case.")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"},
+            description = "disqus {getThreadDetails} integration test with negative case.")
     public void testGetThreadDetailsWithNegativeCase() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getThreadDetails");
@@ -214,7 +217,8 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
     /**
      * Test listThreads method with Mandatory Parameters.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"}, description = "disqus {listThreads} integration test with mandatory parameters")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"},
+            description = "disqus {listThreads} integration test with mandatory parameters")
     public void testListThreadsWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:listThreads");
@@ -248,7 +252,8 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
     /**
      * Test listThreads method with optional Parameters.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"}, description = "disqus {listThreads} integration test with optional parameters")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"},
+            description = "disqus {listThreads} integration test with optional parameters")
     public void testListThreadsWithOptionalParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:listThreads");
@@ -309,7 +314,8 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
     /**
      * Test subscribe method with Mandatory Parameters.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"}, description = "disqus {subscribe} integration test with mandatory parameters")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testCreateThreadWithMandatoryParameters"},
+            description = "disqus {subscribe} integration test with mandatory parameters")
     public void testSubscribeWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:subscribe");
@@ -616,7 +622,8 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
     /**
      * Test for getCategoryDetails method with mandatory parameters.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testListCategoriesWithMandatoryParameters"}, description = "disqus {getCategoryDetails} integration test with mandatory parameters")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testListCategoriesWithMandatoryParameters"},
+            description = "disqus {getCategoryDetails} integration test with mandatory parameters")
     public void testGetCategoryDetailsWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getCategoryDetails");
@@ -662,7 +669,8 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
     /**
      * Test for getPost method with mandatory parameters.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testListPostsWithMandatoryParameters"}, description = "disqus {getPost} integration test with mandatory parameters")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testListPostsWithMandatoryParameters"},
+            description = "disqus {getPost} integration test with mandatory parameters")
     public void testGetPostWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getPost");
@@ -686,7 +694,8 @@ public class DisqusConnectorIntegrationTest extends ConnectorIntegrationTestBase
     /**
      * Test for getPost method with optional parameters.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testListPostsWithMandatoryParameters"}, description = "disqus {listCategories} integration test with optional parameters")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testListPostsWithMandatoryParameters"},
+            description = "disqus {listCategories} integration test with optional parameters")
     public void testGetPostWithOptionalParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getPost");
