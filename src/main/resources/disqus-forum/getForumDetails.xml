@@ -58,7 +58,7 @@
                 }
                 if(urlQuery != ""){
                 	// Prefix the urlQuery with '?' and remove the trailing '&'
-                	urlQuery = '?' + urlQuery.substring(0, urlQuery.length-1);
+                	urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
                 }                
 				mc.setProperty('uri.var.urlQuery', urlQuery);
             ]]>
