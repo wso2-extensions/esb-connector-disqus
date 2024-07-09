@@ -4,7 +4,7 @@
     "category": "Storage and Content Management",
     "documentationUrl": "https://docs.wso2.com/display/CONNECTORS/Disqus+Connector",
     "description": "The Disqus connector allows you to access the Disqus REST API through WSO2 ESB. Disqus is a blog comment hosting service for web sites and online communities that uses a networked platform.",
-    "status": "Unsupported",
+    "status": "Active",
     "labels": [
         "connector"
     ],
